@@ -11,6 +11,8 @@ password=
 /* Задача 2
 Создайте базу данных example, разместите в ней таблицу users, состоящую из двух столбцов, числового id и строкового name.
 */
+CREATE DATABASE IF NOT EXISTS example;
+USE example;
 DROP TABLE if EXISTS users;
 CREATE TABLE users (
 	id INT UNSIGNED,
@@ -22,7 +24,7 @@ CREATE TABLE users (
 */
 mysqldump -u alex -p example > sample.sql
 mysql -p
-CREATE TABLE IF NOT EXISTS sample;
+CREATE DATABASE IF NOT EXISTS sample;
 USE sample;
 SOURCE example.sql
 
