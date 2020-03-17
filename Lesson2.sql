@@ -22,7 +22,7 @@ CREATE TABLE users (
 /* Задача 3
 Создайте дамп базы данных example из предыдущего задания, разверните содержимое дампа в новую базу данных sample.
 */
-mysqldump -u alex -p example > sample.sql
+mysqldump -u alex -p example > example.sql
 mysql -p
 CREATE DATABASE IF NOT EXISTS sample;
 USE sample;
