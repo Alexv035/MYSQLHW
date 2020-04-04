@@ -45,7 +45,7 @@ SELECT COUNT(DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_
 SELECT COUNT(DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_at)))) as 'Tuesdaybirth' FROM users where DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_at))) = "Tuesday"; 
 SELECT COUNT(DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_at)))) as 'Wednesdaybirth' FROM users where DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_at))) = "Wednesday"; 
 SELECT COUNT(DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_at)))) as 'Thursdaybirth' FROM users where DAYNAME(CONCAT(YEAR(NOW()),'-',MONTH(birthday_at),'-',DAY(birthday_at))) = "Thursday"; 
---- Не нашел как создать сразу одну агрегированную таблицу по расчету количеств
+-- Не нашел как создать сразу одну агрегированную таблицу по расчету количеств
 
 
 
