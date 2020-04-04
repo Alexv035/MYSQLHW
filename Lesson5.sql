@@ -5,12 +5,12 @@ UPDATE users SET created_at=CURRENT_TIMESTAMP(), updated_at = CURRENT_TIMESTAMP(
 -- Задача 2. Таблица users была неудачно спроектирована. Записи created_at и updated_at были заданы типом VARCHAR и в них долгое время 
 -- помещались значения в формате "20.10.2017 8:10". Необходимо преобразовать поля к типу DATETIME, сохранив введеные ранее значения.
 
--- ALTER TABLE users DROP COLUMN temp, temp2;
+-- ALTER TABLE users DROP COLUMN temp, DROP COLUMN temp2;
 
 ALTER TABLE users ADD COLUMN (temp DATETIME, temp2 DATETIME);
 update users set temp = created_at, temp2 = updated_at; 
-ALTER TABLE users DROP COLUMN created_at, updated_at;
-ALTER TABLE users CHANGE COLUMN (temp created_at datetime, temp2 updated_at datetime);
+ALTER TABLE users DROP COLUMN created_at, DROP COLUMN updated_at;
+ALTER TABLE users CHANGE COLUMN temp created_at datetime, CHANGE COLUMN temp2 updated_at datetime;
 
 -- Задача 3. В таблице складских запасов storehouses_products в поле value могут встречаться самые разные цифры: 0, если товар 
 -- закончился и выше нуля, если на складе имеются запасы. Необходимо отсортировать записи таким образом, чтобы они выводились в порядке 
