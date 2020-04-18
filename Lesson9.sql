@@ -123,12 +123,12 @@ SELECT hello(CURTIME())//
 DELIMITER //
 CREATE TRIGGER not_null BEFORE INSERT ON products
 FOR EACH ROW
-BEGIN
-    DECLARE chk VARCHAR(255) ;
-    if NEW.name IS NULL AND NEW.description IS NULL
+NN: BEGIN
+    DECLARE chk VARCHAR(255);
+    if (name IS NULL) AND (description IS NULL)
     THEN
-    SET NEW.name = COALESCE(NEW.name,cat_id);
-  	SET NEW.description = COALESCE (NEW.description,cat_id);
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'name и description оба не могут быть NULL';
+    LEAVE NN;
     end if;
 END//
 
